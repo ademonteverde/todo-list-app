@@ -1,0 +1,240 @@
+body {
+    font-family: helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #c3d5ff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    padding: 40px 16px;
+}
+
+.container {
+    background: #2b3d6e;
+    padding: 24px 28px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6 16px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 720px;
+    margin-top: 40px;
+}
+
+.container h1 {
+    margin: 0 0 16px;
+    font-size: 1.6rem;
+    color: #ffffff;
+}
+
+form {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 8px;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #22c55e;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+form button:hover {
+    background-color: #16a34a;
+}
+
+/* Task List Styles */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+}
+
+/* Individual Task Styles */
+li {
+    background: #283a6a;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06); /* subtle border */
+    transition: background 0.15s ease, transform 0.1s ease;
+    animation: fadeIn 0.18s ease-out;  
+}
+
+li.completed {
+    background: #14532d;
+    border-color: #22c55e;
+}
+
+li.completed .task-text {
+    text-decoration: line-through;
+    opacity: 0.9;
+    color: #dcfce7;
+}
+
+li:hover {
+    background: #334b7f;
+    transform: translateY(-1px);
+}
+
+/* Left side: checkbox + label */
+.task-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    padding-left: 2px;
+}
+
+.task-checkbox {
+    accent-color: #22c55e;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.task-text {
+    transition: opacity 0.2s ease,
+    text-decoration 0.2s ease;
+    color: #e5e7ff;
+    font-size: 0.95rem;
+}
+
+/* Edit mode input */
+.task-edit-input {
+    flex: 1;
+    padding: 5px 7px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.edit-btn, 
+.delete-btn { 
+    cursor: pointer;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+}
+
+.edit-btn {
+    background-color: #3b82f6;
+    color: #ffffff;
+    margin-right: 4px;
+}
+
+.edit-btn:hover {
+    background-color: #2563eb;
+}
+
+.delete-btn {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+
+  form {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #todo-input {
+    width: 100%;
+    margin: 0;
+    display: block;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    border-radius: 12px;
+  }
+
+  form button {
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .task-label {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .edit-btn {
+    margin-top: 6px;
+  }
+
+  .task-checkbox {
+    width: 26px;
+    height: 26px;
+  }
+}
